@@ -37,7 +37,8 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-sqlite-storage"
   ],
   "cordovaPlatforms": [],
   "description": "reminder: An Ionic project"
