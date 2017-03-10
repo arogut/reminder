@@ -42,7 +42,24 @@ export class MyApp {
         name: "data.db",
         location: "default"
       }).then(() => {
-        db.executeSql("CREATE TABLE IF NOT EXISTS alerts (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, time TEXT)", {}).then((data) => {
+        db.executeSql("CREATE TABLE IF NOT EXISTS reminder (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "name TEXT," +
+            "type TEXT" +
+            "message TEXT" +
+          ")", {}).then((data) => {
+          console.log("TABLE CREATED: ", data);
+        }, (error) => {
+          console.error("Unable to execute sql", error);
+        })
+        db.executeSql("CREATE TABLE IF NOT EXISTS alarm (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "type TEXT," +
+            "time TEXT" +
+            "date TEXT" +
+            "duration INTEGER" +
+            "reminder_id" +
+          ")", {}).then((data) => {
           console.log("TABLE CREATED: ", data);
         }, (error) => {
           console.error("Unable to execute sql", error);

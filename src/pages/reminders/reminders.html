@@ -9,15 +9,17 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
+    <button ion-item *ngFor="let reminder of reminders">
+      test
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+  <ion-fab right bottom>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
