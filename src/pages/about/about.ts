@@ -7,11 +7,25 @@ import {NavController, NavParams} from "ionic-angular";
 })
 export class About {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  slides = [
+    {
+      title: "1",
+      description: "Take care",
+      image: "heart-outline",
+    },
+    {
+      title: "2",
+      description: "Take care",
+      image: "notifications-outline",
+    },
+    {
+      title: "3",
+      description: "Take care",
+      image: "md-happy",
+    }
+  ];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 }

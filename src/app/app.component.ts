@@ -3,7 +3,7 @@ import {Nav, Platform} from "ionic-angular";
 import {StatusBar, Splashscreen, SQLite} from "ionic-native";
 import {Home} from "../pages/home/home";
 import {Reminders} from "../pages/reminders/reminders";
-import {Alerts} from "../pages/alerts/alerts";
+import {Alarms} from "../pages/alarms/alarms";
 import {About} from "../pages/about/about";
 import {Settings} from "../pages/settings/settings";
 
@@ -25,7 +25,7 @@ export class MyApp {
     this.pages = [
       {title: 'Home', component: Home},
       {title: 'Remiders', component: Reminders},
-      {title: 'Alerts', component: Alerts},
+      {title: 'Alarms', component: Alarms},
       {title: 'About', component: About},
       {title: 'Settings', component: Settings}
     ];
@@ -72,8 +72,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 }

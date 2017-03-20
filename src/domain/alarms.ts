@@ -7,6 +7,6 @@ export class Alarm {
   message: string
 }
 
-enum AlarmType {
-  OneTime, Snooze
+export enum AlarmType {
+  OneTime, Repeating
 }

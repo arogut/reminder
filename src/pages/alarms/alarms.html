@@ -3,17 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Reminders</ion-title>
+    <ion-title>Alerts</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let reminder of reminders">
+    <button ion-item *ngFor="let alarm of alarms">
       test
     </button>
   </ion-list>
+
   <ion-fab right bottom>
-    <button ion-fab color="danger" (click)="addNewReminder()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="danger" (click)="addNewAlarm()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

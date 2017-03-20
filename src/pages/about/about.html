@@ -8,5 +8,19 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <ion-icon [name]="slide.image" class="larger"></ion-icon>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/icon/favicon.ico" class="slide-image larger"/>
+      <h2 class="slide-title">Take Care!</h2>
+      <button ion-button large clear icon-right color="danger">
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

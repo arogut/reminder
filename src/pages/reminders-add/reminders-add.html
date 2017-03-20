@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>reminders-add</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Reminder Type</ion-label>
+      <ion-select [(ngModel)]="reminderType">
+        <ion-option value="DoctorVisit" selected="true">Doctor Visit</ion-option>
+        <ion-option value="MeasurementTime">Measurement Time</ion-option>
+        <ion-option value="PillTime">PillTime</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Enter a description"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="createReminder()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>

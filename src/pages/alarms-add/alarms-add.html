@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>alerts-add</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Alarm Type</ion-label>
+      <ion-select [(ngModel)]="alarmType">
+        <ion-option value="OneTime" selected="true">One Time</ion-option>
+        <ion-option value="Repeating">Repeating</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-datetime displayFormat="HH:mm" [(ngModel)]="selectedTime"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="alarmType == 'OneTime'">
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="DD-MMM" [(ngModel)]="selectedDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Alarm Duration</ion-label>
+      <ion-select [(ngModel)]="duration">
+        <ion-option value="1" selected="true">1 min</ion-option>
+        <ion-option value="2">2 min</ion-option>
+        <ion-option value="5">5 min</ion-option>
+        <ion-option value="endless">Endless</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Enter alarm message"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="createAlarm()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-content>
