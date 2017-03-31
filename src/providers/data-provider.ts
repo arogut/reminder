@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {SQLite} from "ionic-native";
 import {Reminder} from "../domain/reminder";

@@ -4,6 +4,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/org.nypr.cordova.wakeupplugin/examples/SimpleAlarmExample/platforms" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

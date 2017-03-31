@@ -5,12 +5,11 @@ export class Reminder {
   name: string;
   type: ReminderType;
   message: string;
-  alarms: Array<Alarm> = [];
 
   constructor(id: number, name: string, type: ReminderType, message: string) {
     this.id = id;
     this.name = name;
-    //this.type = type;
+    this.type = type;
     this.message = message;
   }
 }

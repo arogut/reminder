@@ -5,9 +5,7 @@ import {Home} from "../pages/home/home";
 import {Reminders} from "../pages/reminders/reminders";
 import {Settings} from "../pages/settings/settings";
 import {About} from "../pages/about/about";
-import {Alarms} from "../pages/alarms/alarms";
 import {RemindersAdd} from "../pages/reminders-add/reminders-add";
-import {AlarmsAdd} from "../pages/alarms-add/alarms-add";
 
 @NgModule({
   declarations: [
@@ -15,8 +13,6 @@ import {AlarmsAdd} from "../pages/alarms-add/alarms-add";
     Home,
     Reminders,
     RemindersAdd,
-    Alarms,
-    AlarmsAdd,
     About,
     Settings
   ],
@@ -29,8 +25,6 @@ import {AlarmsAdd} from "../pages/alarms-add/alarms-add";
     Home,
     Reminders,
     RemindersAdd,
-    Alarms,
-    AlarmsAdd,
     About,
     Settings
   ],

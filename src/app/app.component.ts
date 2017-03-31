@@ -3,10 +3,8 @@ import {Nav, Platform} from "ionic-angular";
 import {StatusBar, Splashscreen, SQLite} from "ionic-native";
 import {Home} from "../pages/home/home";
 import {Reminders} from "../pages/reminders/reminders";
-import {Alarms} from "../pages/alarms/alarms";
 import {About} from "../pages/about/about";
 import {Settings} from "../pages/settings/settings";
-
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +23,6 @@ export class MyApp {
     this.pages = [
       {title: 'Home', component: Home},
       {title: 'Remiders', component: Reminders},
-      {title: 'Alarms', component: Alarms},
       {title: 'About', component: About},
       {title: 'Settings', component: Settings}
     ];
@@ -42,23 +39,16 @@ export class MyApp {
         name: "data.db",
         location: "default"
       }).then(() => {
-        db.executeSql("CREATE TABLE IF NOT EXISTS reminder (" +
-            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "name TEXT," +
-            "type TEXT" +
-            "message TEXT" +
-          ")", {}).then((data) => {
-          console.log("TABLE CREATED: ", data);
+        db.executeSql(
+          "DROP TABLE  reminder ", {}).then((data) => {
+          console.log("TABLE DROPPED: ", data);
         }, (error) => {
           console.error("Unable to execute sql", error);
-        })
-        db.executeSql("CREATE TABLE IF NOT EXISTS alarm (" +
+        }),
+        db.executeSql(
+          "CREATE TABLE IF NOT EXISTS reminder (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "type TEXT," +
-            "time TEXT" +
-            "date TEXT" +
-            "duration INTEGER" +
-            "reminder_id" +
+            "obj TEXT" +
           ")", {}).then((data) => {
           console.log("TABLE CREATED: ", data);
         }, (error) => {
