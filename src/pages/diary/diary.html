@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Diary</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let measurement of measurements" (click)="presentModal(measurement)">
+      <ion-icon class="red-icon" name="{{measurement.img}}"></ion-icon>
+      <span class="margin">{{measurement.date | date: 'dd MMM yyyy hh:mm'}}</span>
+    </button>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="addNewMeasurement()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

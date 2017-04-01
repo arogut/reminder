@@ -8,7 +8,13 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Incoming events</h3>
+  <ion-icon class="red-icon big center" name="pulse"></ion-icon>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-item>
+    <span ion-item>Take care of yourself</span>
+  </ion-item>
+
+  <ion-item>
+    <button ion-item color="danger" (click)="openDiary()">Open Diary</button>
+  </ion-item>
 </ion-content>

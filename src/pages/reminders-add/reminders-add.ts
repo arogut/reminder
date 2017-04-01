@@ -1,28 +1,17 @@
-import { Component } from '@angular/core';
-import {NavController, Platform} from 'ionic-angular';
-import { ReminderType } from "../../domain/reminder";
-import {SQLite} from "ionic-native";
+import {Component} from "@angular/core";
+import {NavController, Events} from "ionic-angular";
+import {Storage} from "@ionic/storage";
+import {Reminder} from "../../domain/reminder";
+import {LocalNotifications} from 'ionic-native';
 
 @Component({
   selector: 'page-reminders-add',
   templateUrl: 'reminders-add.html'
 })
 export class RemindersAdd {
-  database: SQLite;
-  reminderType: ReminderType;
 
-  constructor(public navCtrl: NavController, public platform: Platform) {
-    this.platform.ready().then(() => {
-      this.database = new SQLite();
-      this.database.openDatabase({
-        name: "data.db",
-        location: "default"
-      }).then(() => {
-        console.log("DB opened");
-      }, (error) => {
-        console.log("ERROR: ", error);
-      });
-    });
+  reminder: Reminder = new Reminder(1, "", "", "");
+  constructor(public navCtrl: NavController, public events: Events, private storage: Storage) {
   }
 
   createReminder() {
@@ -31,11 +20,17 @@ export class RemindersAdd {
   }
 
   public add() {
-    console.log('INSERT INTO reminder (obj) VALUES (\'' + JSON.stringify({id: "1", name: "2", type: "type", message: "message"}) + '\')');
-    this.database.executeSql('INSERT INTO reminder (obj) VALUES (\'' + JSON.stringify({id: "1", name: "2", type: "type", message: "message"}) + '\')', []).then((data) => {
-      console.log("INSERTED: " + JSON.stringify(data));
-    }, (error) => {
-      console.log(error);
+    this.storage.get("reminders").then((values) => {
+      let arr: Array<Reminder> = JSON.parse(values);
+      arr.push(this.reminder);
+      this.storage.set("reminders", JSON.stringify(arr)).then(() => {
+        console.log("Inserted successfully")
+      });
+      this.events.publish('reload-reminders');
+    });
+    LocalNotifications.schedule({
+      id: 1,
+      text: 'Single ILocalNotification',
     });
   }
 }

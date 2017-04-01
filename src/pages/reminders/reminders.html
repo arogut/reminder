@@ -10,7 +10,11 @@
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let reminder of reminders">
-      test
+      <ion-icon name="medkit" *ngIf="reminder.type == 'DoctorVisit'"></ion-icon>
+      <ion-icon name="thermometer" *ngIf="reminder.type == 'Measurement'"></ion-icon>
+      <ion-icon name="thermometer" *ngIf="reminder.type == 'PillTime'"></ion-icon>
+      <span>{{reminder.name}}</span>
+      <i class="icon ion-ios-arrow-right"></i>
     </button>
   </ion-list>
   <ion-fab right bottom>

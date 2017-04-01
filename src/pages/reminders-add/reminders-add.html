@@ -12,20 +12,20 @@
 
     <ion-item>
       <ion-label stacked>Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="reminder.name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Reminder Type</ion-label>
-      <ion-select [(ngModel)]="reminderType">
+      <ion-select [(ngModel)]="reminder.type">
         <ion-option value="DoctorVisit" selected="true">Doctor Visit</ion-option>
-        <ion-option value="MeasurementTime">Measurement Time</ion-option>
+        <ion-option value="Measurement">Measurement Time</ion-option>
         <ion-option value="PillTime">PillTime</ion-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-textarea placeholder="Enter a description"></ion-textarea>
+      <ion-textarea placeholder="Enter a description" [(ngModel)]="reminder.message"></ion-textarea>
     </ion-item>
   </ion-list>
 
